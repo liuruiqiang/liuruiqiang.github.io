@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-14T12:42:13.120Z</updated>
+  <updated>2020-02-14T12:46:39.281Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,28 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>testagain</title>
+    <title>03-04</title>
     <link href="http://yoursite.com/2020/02/14/testagain/"/>
     <id>http://yoursite.com/2020/02/14/testagain/</id>
     <published>2020-02-14T12:41:49.000Z</published>
-    <updated>2020-02-14T12:42:13.120Z</updated>
+    <updated>2020-02-14T12:46:39.281Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="刷题呀："><a href="#刷题呀：" class="headerlink" title="刷题呀："></a>刷题呀：</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="面试题03-找出数组中重复的数字"><a href="#面试题03-找出数组中重复的数字" class="headerlink" title="面试题03-找出数组中重复的数字"></a>面试题03-找出数组中重复的数字</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内。数组中某些数字是重复的，但不知道有几个数字重复了，也不知道每个数字重复了几次。请找出数组中任意一个重复的数字。</p><h3 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h3><p>首先判断数组长度是否为0或1，若是，则返回-1，创建一个与数组大小一致的初始化值为0的计数数组，数组第一个位置计算0出现的个数 ，第二个位置计算1出现的个数，依次类推，这样当有一个位置的数值为2时这个位置的序号就是所求值<br><strong>时间复杂度 O(n),空间复杂度: O(n)</strong><br>代码</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findRepeatNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">if</span> (n ==<span class="number">0</span>||n==<span class="number">1</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">list</span><span class="params">(n)</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">list</span>[nums[i]]+=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">list</span>[nums[i]]==<span class="number">2</span>)&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><h2 id="面试题04-二维数组的查找"><a href="#面试题04-二维数组的查找" class="headerlink" title="面试题04-二维数组的查找"></a>面试题04-二维数组的查找</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote><p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p><h3 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h3><p>首先判断matrix是否为空，若为空则返回false，然后从右上角开始遍历，若target比该值大则在去掉第一行的矩阵中继续遍历，若target比该值小则在去掉最后一列的矩阵中继续遍历，直到找到target<br><strong>时间复杂度 O(n*m),空间复杂度: O(1)</strong><br>代码</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">findNumberIn2DArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; matrix, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.empty()||matrix[<span class="number">0</span>].empty())<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> n=matrix.<span class="built_in">size</span>();<span class="keyword">int</span> m = matrix[<span class="number">0</span>].<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> col=m<span class="number">-1</span>,raw=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(target&gt;matrix[raw][col])raw++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(target&lt;matrix[raw][col])col--;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">if</span> (col&lt;<span class="number">0</span>||raw&gt;=n)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;刷题呀：&quot;&gt;&lt;a href=&quot;#刷题呀：&quot; class=&quot;headerlink&quot; title=&quot;刷题呀：&quot;&gt;&lt;/a&gt;刷题呀：&lt;/h2&gt;
+        &lt;h2 id=&quot;面试题03-找出数组中重复的数字&quot;&gt;&lt;a href=&quot;#面试题03-找出数组中重复的数字&quot; class=&quot;headerlink&quot; title=&quot;面试题03-找出数组中重复的数字&quot;&gt;&lt;/a&gt;面试题03-找出数组中重复的数字&lt;/h2&gt;&lt;h3 id=&quot;题目描述&quot;&gt;&lt;a 
       
     
     </summary>
     
     
-      <category term="算法刷题" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/"/>
+      <category term="剑指offer" scheme="http://yoursite.com/categories/%E5%89%91%E6%8C%87offer/"/>
     
     
-      <category term="搭建个人网站" scheme="http://yoursite.com/tags/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99/"/>
+      <category term="算法刷题" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/"/>
     
   </entry>
   
